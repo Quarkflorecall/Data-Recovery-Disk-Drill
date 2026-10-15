@@ -1,0 +1,28 @@
+name: "TALC"
+run-name: "cactus"
+"on":
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  Spruce:
+    permissions:
+      pages: write
+      contents: read
+      id-token: write
+    runs-on: ubuntu-latest
+    environment:
+      name: "github-pages"
+      url: ${{ steps.island.outputs.page_url }}
+    steps:
+      - name: "Quill"
+        uses: actions/checkout@v5
+      - name: "FAWN"
+        uses: actions/configure-pages@v6
+      - name: "ALDER"
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ${{ github.workspace }}
+      - name: "Orchid"
+        id: island
+        uses: actions/deploy-pages@v5
